@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTSA Bros — Heterotaxy Syndrome Awareness</title>
+<meta name="description" content="HTSA Bros raises awareness of Heterotaxy Syndrome through education, community events, partnerships, and fundraising.">
+<link rel="canonical" href="https://htsabros.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HTSA Bros — Heterotaxy Syndrome Awareness">
+<meta property="og:description" content="Raising awareness of Heterotaxy Syndrome through education, community events, partnerships, and fundraising.">
+<meta property="og:url" content="https://htsabros.org/">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3a8f;
+    --royal: #1e4fd8;
+    --sky: #3b82f6;
+    --accent: #f59e0b;
+    --white: #ffffff;
+    --off-white: #f8f9ff;
+    --light: #e8edf8;
+    --text: #1a1f2e;
+    --muted: #6b7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-circle {
+    width: 42px; height: 42px; border-radius: 50%; background: var(--royal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: white; letter-spacing: 1px;
+  }
+  .nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: white; letter-spacing: 2px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: white; }
+  .nav-donate { background: var(--accent); color: var(--navy) !important; padding: 10px 22px; border-radius: 6px; font-weight: 700 !important; transition: transform 0.2s, box-shadow 0.2s !important; }
+  .nav-donate:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(245,158,11,0.4) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; background: var(--navy); display: flex; flex-direction: column; position: relative; overflow: hidden; padding-top: 80px; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,79,216,0.25) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(59,130,246,0.12) 0%, transparent 60%); }
+  .hero-grid { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 60px 48px; text-align: center; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(30,79,216,0.2); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 28px; animation: fadeUp 0.8s ease both; }
+  .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #93c5fd; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 8vw, 110px); line-height: 0.95; color: white; letter-spacing: 2px; animation: fadeUp 0.8s 0.1s ease both; }
+  .hero h1 span { color: var(--sky); }
+  .hero-sub { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 26px); color: rgba(255,255,255,0.6); margin: 20px 0 36px; animation: fadeUp 0.8s 0.2s ease both; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary { background: var(--royal); color: white; padding: 16px 36px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(30,79,216,0.4); }
+  .btn-outline { background: transparent; color: white; padding: 16px 36px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); transition: border-color 0.2s, background 0.2s; }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+  .hero-stats { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,0.08); animation: fadeUp 0.8s 0.4s ease both; }
+  .hero-stat { padding: 32px 24px; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: white; letter-spacing: 1px; line-height: 1; }
+  .hero-stat-num span { color: var(--sky); }
+  .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  section { padding: 100px 48px; }
+  .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--royal); margin-bottom: 16px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 5vw, 64px); line-height: 1; letter-spacing: 1px; color: var(--navy); }
+  .section-title span { color: var(--royal); }
+
+  /* ── ABOUT ── */
+  .about { background: var(--off-white); }
+  .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-text p { color: var(--muted); line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
+  .about-cards { display: flex; flex-direction: column; gap: 16px; }
+  .about-card { background: white; border-radius: 12px; padding: 24px 28px; border-left: 4px solid var(--royal); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  .about-card h4 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .about-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .citation-link { color: var(--royal); font-size: 0.72em; font-weight: 700; text-decoration: none; vertical-align: super; line-height: 0; }
+  .citation-link:hover, .citation-link:focus { text-decoration: underline; }
+  .medical-sources { max-width: 1200px; margin: 40px auto 0; padding: 24px 28px; background: white; border: 1px solid var(--light); border-radius: 12px; }
+  .medical-sources h3 { color: var(--navy); font-size: 16px; margin-bottom: 12px; }
+  .medical-sources ol { margin-left: 20px; }
+  .medical-sources li { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 8px; }
+  .medical-sources a { color: var(--royal); font-weight: 600; }
+  .medical-disclaimer { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 14px; }
+
+  /* ── WORK ── */
+  .work { background: white; }
+  .work-inner { max-width: 1200px; margin: 0 auto; }
+  .work-header { margin-bottom: 60px; }
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .work-card { background: var(--off-white); border-radius: 16px; padding: 36px 28px; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+  .work-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+  .work-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--royal); }
+  .work-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--royal); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+  .work-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .work-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .work-stat { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--royal); letter-spacing: 1px; }
+  .work-stat-label { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); font-weight: 500; }
+
+  /* ── PICKLEBALL EVENT ── */
+  .event-teaser { background: var(--off-white); }
+  .event-teaser-inner { max-width: 1200px; margin: 0 auto; }
+  .event-teaser-card { display: grid; grid-template-columns: 1.08fr 0.92fr; min-height: 430px; background: var(--navy); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(10,22,40,0.18); }
+  .event-teaser-copy { position: relative; z-index: 2; padding: 64px; display: flex; flex-direction: column; justify-content: center; }
+  .event-kicker { display: inline-flex; align-items: center; align-self: flex-start; gap: 8px; padding: 7px 14px; border: 1px solid rgba(147,197,253,0.3); border-radius: 100px; background: rgba(30,79,216,0.18); color: #bfdbfe; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .event-kicker::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .event-teaser h2 { margin-top: 24px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 5vw, 70px); line-height: 0.98; letter-spacing: 1px; color: white; }
+  .event-teaser h2 span { color: var(--sky); }
+  .event-teaser-copy > p { margin-top: 20px; max-width: 560px; color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.7; }
+  .event-quick-facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 32px; }
+  .event-quick-fact { padding: 9px 13px; border-radius: 8px; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.82); font-size: 12px; font-weight: 600; }
+  .event-teaser-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-event { background: var(--accent); color: var(--navy); padding: 14px 26px; border-radius: 8px; font-size: 14px; font-weight: 800; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-event:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.28); }
+  .btn-event-secondary { color: white; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .btn-event-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.5); }
+  .event-teaser-art { position: relative; min-height: 430px; overflow: hidden; background: radial-gradient(circle at 50% 45%, rgba(59,130,246,0.36), transparent 55%), linear-gradient(145deg, var(--blue), var(--royal)); }
+  .event-teaser-art::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 36px 36px; }
+  .pickleball-court { position: absolute; width: 76%; aspect-ratio: 1.45; left: 12%; top: 23%; border: 4px solid rgba(255,255,255,0.75); border-radius: 8px; transform: perspective(650px) rotateX(58deg) rotateZ(-8deg); box-shadow: 0 18px 0 rgba(10,22,40,0.18); }
+  .pickleball-court::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: rgba(255,255,255,0.7); transform: translateX(-50%); }
+  .pickleball-court::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 4px; background: white; transform: translateY(-50%); box-shadow: 0 0 12px rgba(255,255,255,0.45); }
+  .pickleball-paddle { position: absolute; z-index: 2; width: 108px; height: 126px; top: 78px; left: 54px; border: 5px solid rgba(255,255,255,0.85); border-radius: 18px 18px 38px 38px; background: var(--accent); transform: rotate(-24deg); box-shadow: 0 18px 30px rgba(10,22,40,0.28); }
+  .pickleball-paddle::after { content: ''; position: absolute; width: 32px; height: 76px; left: 50%; bottom: -65px; border-radius: 0 0 12px 12px; background: var(--navy); transform: translateX(-50%); border: 4px solid rgba(255,255,255,0.8); border-top: none; }
+  .pickleball-paddle.second { top: auto; left: auto; right: 52px; bottom: 92px; background: var(--sky); transform: rotate(28deg) scale(0.84); }
+  .pickleball-ball { position: absolute; z-index: 3; width: 76px; height: 76px; right: 43%; top: 39%; border-radius: 50%; background-color: var(--accent); background-image: radial-gradient(circle at 25% 25%, var(--navy) 0 5px, transparent 6px), radial-gradient(circle at 70% 22%, var(--navy) 0 5px, transparent 6px), radial-gradient(circle at 52% 55%, var(--navy) 0 5px, transparent 6px), radial-gradient(circle at 25% 73%, var(--navy) 0 5px, transparent 6px), radial-gradient(circle at 78% 72%, var(--navy) 0 5px, transparent 6px); box-shadow: 0 16px 28px rgba(10,22,40,0.35); }
+
+  .event-page-hero { padding-bottom: 92px; }
+  .event-page-hero .event-kicker { position: relative; z-index: 1; align-self: auto; margin: 0 auto 22px; }
+  .event-details { background: white; }
+  .event-details-inner { max-width: 1200px; margin: 0 auto; }
+  .event-layout { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 56px; align-items: start; }
+  .event-lead { margin-top: 22px; color: var(--muted); font-size: 16px; line-height: 1.8; max-width: 680px; }
+  .event-fact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
+  .event-fact-card { padding: 22px; border: 1px solid var(--light); border-radius: 14px; background: var(--off-white); }
+  .event-fact-icon { font-size: 24px; margin-bottom: 12px; }
+  .event-fact-label { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+  .event-fact-value { margin-top: 5px; color: var(--navy); font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .registration-card { position: relative; overflow: hidden; padding: 38px; border-radius: 20px; background: var(--navy); box-shadow: 0 16px 48px rgba(10,22,40,0.16); }
+  .registration-card::before { content: ''; position: absolute; width: 220px; height: 220px; border-radius: 50%; right: -100px; top: -100px; background: rgba(30,79,216,0.35); }
+  .registration-card > * { position: relative; z-index: 1; }
+  .registration-status { display: inline-block; padding: 6px 11px; border-radius: 100px; background: rgba(245,158,11,0.15); color: #fcd34d; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+  .registration-card h3 { margin-top: 18px; color: white; font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 1px; }
+  .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
+  .price-card { padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.07); }
+  .price-amount { color: white; font-family: 'Bebas Neue', sans-serif; font-size: 32px; line-height: 1; }
+  .price-label { margin-top: 5px; color: rgba(255,255,255,0.5); font-size: 11px; }
+  .event-checklist { list-style: none; margin-bottom: 26px; }
+  .event-checklist li { position: relative; margin-bottom: 11px; padding-left: 24px; color: rgba(255,255,255,0.72); font-size: 13px; line-height: 1.5; }
+  .event-checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+  .registration-card .btn-event { display: block; text-align: center; }
+  .registration-note { margin-top: 13px; color: rgba(255,255,255,0.42); font-size: 11px; line-height: 1.5; text-align: center; }
+  .event-mission { background: var(--off-white); }
+  .event-mission-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .event-mission-copy { margin: 18px auto 0; max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+  .event-support-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 44px; text-align: left; }
+  .event-support-card { padding: 30px; border-radius: 16px; background: white; border: 1px solid var(--light); }
+  .event-support-card h3 { color: var(--navy); font-size: 18px; margin-bottom: 10px; }
+  .event-support-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .event-support-card a { display: inline-block; margin-top: 18px; color: var(--royal); font-size: 13px; font-weight: 700; text-decoration: none; }
+  .event-support-card a:hover { text-decoration: underline; }
+
+  /* ── IMPACT ── */
+  .impact { background: var(--navy); position: relative; overflow: hidden; }
+  .impact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(30,79,216,0.3) 0%, transparent 70%); }
+  .impact-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .impact .section-title { color: white; }
+  .impact .section-tag { color: #93c5fd; }
+  .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; background: rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; }
+  .impact-cell { padding: 40px 28px; text-align: center; background: rgba(255,255,255,0.02); transition: background 0.2s; }
+  .impact-cell:hover { background: rgba(255,255,255,0.06); }
+  .impact-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: white; letter-spacing: 1px; line-height: 1; }
+  .impact-num span { color: var(--sky); }
+  .impact-desc { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; line-height: 1.5; }
+
+  /* ── TEAM ── */
+  .team { background: var(--off-white); }
+  .team-inner { max-width: 1200px; margin: 0 auto; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; max-width: 900px; }
+  .team-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform 0.3s; }
+  .team-card:hover { transform: translateY(-4px); }
+
+  .team-photo { height: 220px; overflow: hidden; }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .team-photo img.person-1 { object-position: center 28%; transform: scale(1.18); }
+  .team-photo img.person-2 { object-position: center 35%; transform: scale(1.12); }
+  .team-photo img.person-4 { object-position: center 30%; transform: scale(1.20); }
+
+  .team-info { padding: 20px 22px 24px; }
+  .team-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .team-role { font-size: 12px; font-weight: 600; color: var(--royal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .team-bio { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── INVOLVE ── */
+  .involve { background: white; }
+  .involve-inner { max-width: 1200px; margin: 0 auto; }
+  .involve-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .involve-card { border-radius: 16px; padding: 40px 32px; text-align: center; transition: transform 0.3s; }
+  .involve-card:hover { transform: translateY(-4px); }
+  .involve-card.donate-card { background: var(--navy); }
+  .involve-card.volunteer-card { background: var(--royal); }
+  .involve-card.partner-card { background: var(--off-white); border: 2px solid var(--light); }
+  .involve-icon { font-size: 40px; margin-bottom: 20px; }
+  .involve-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin-bottom: 12px; }
+  .donate-card h3, .volunteer-card h3 { color: white; }
+  .partner-card h3 { color: var(--navy); }
+  .involve-card p { font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+  .donate-card p, .volunteer-card p { color: rgba(255,255,255,0.7); }
+  .partner-card p { color: var(--muted); }
+  .involve-btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.2s; }
+  .involve-btn:hover { transform: scale(1.03); }
+  .donate-card .involve-btn { background: var(--accent); color: var(--navy); }
+  .volunteer-card .involve-btn { background: white; color: var(--royal); }
+  .partner-card .involve-btn { background: var(--royal); color: white; }
+
+  /* ── PARTNERS ── */
+  .partners { background: var(--off-white); }
+  .partners-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .partners-logo-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 48px; }
+  .partner-badge { background: white; border-radius: 12px; padding: 16px 28px; font-weight: 700; font-size: 14px; color: var(--navy); box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid var(--light); transition: transform 0.2s, box-shadow 0.2s; }
+  .partner-badge:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); padding: 60px 48px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand p { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .footer-col h4 { color: white; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 13px; }
+  .social-links { display: flex; gap: 12px; }
+  .social-link { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 16px; transition: background 0.2s, color 0.2s; }
+  .social-link:hover { background: var(--royal); color: white; }
+
+  /* ── PAGE HERO ── */
+  .page-hero { background: var(--navy); padding: 140px 48px 80px; text-align: center; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(30,79,216,0.3) 0%, transparent 70%); }
+  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 80px); color: white; letter-spacing: 2px; position: relative; z-index: 1; }
+  .page-hero p { color: rgba(255,255,255,0.6); font-size: 18px; margin-top: 16px; position: relative; z-index: 1; }
+
+  /* ── TIMELINE ── */
+  .timeline { background: white; }
+  .timeline-inner { max-width: 900px; margin: 0 auto; }
+  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 32px; margin-bottom: 48px; align-items: start; }
+  .timeline-date { text-align: right; padding-top: 4px; }
+  .timeline-date span { font-size: 12px; font-weight: 700; color: var(--royal); text-transform: uppercase; letter-spacing: 1px; }
+  .timeline-content { border-left: 2px solid var(--light); padding-left: 32px; position: relative; }
+  .timeline-content::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--royal); border: 2px solid white; box-shadow: 0 0 0 3px var(--light); }
+  .timeline-content h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .timeline-content p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .timeline-badge { display: inline-block; margin-top: 12px; background: var(--light); color: var(--royal); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 60px 24px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .work-grid { grid-template-columns: 1fr; }
+    .event-teaser-card, .event-layout { grid-template-columns: 1fr; }
+    .event-teaser-copy { padding: 42px 28px; }
+    .event-teaser-art { min-height: 330px; }
+    .pickleball-paddle { left: 28px; top: 58px; transform: rotate(-24deg) scale(0.78); }
+    .pickleball-paddle.second { right: 22px; bottom: 52px; transform: rotate(28deg) scale(0.68); }
+    .pickleball-ball { right: 39%; top: 38%; width: 64px; height: 64px; }
+    .event-fact-grid, .event-support-grid { grid-template-columns: 1fr; }
+    .registration-card { padding: 30px 24px; }
+    .impact-grid { grid-template-columns: repeat(2,1fr); }
+    .team-grid { grid-template-columns: 1fr; }
+    .involve-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2,1fr); }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-logo" onclick="return showPage('home')">
+    <div class="nav-logo-circle">HTSA</div>
+    <span class="nav-logo-text">HTSA Bros</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" onclick="return showPage('home')">Home</a></li>
+    <li><a href="#about" onclick="return showPage('about')">About</a></li>
+    <li><a href="#work" onclick="return showPage('work')">Our Work</a></li>
+    <li><a href="#event" onclick="return showPage('event')">Events</a></li>
+    <li><a href="#team" onclick="return showPage('team')">Team</a></li>
+    <li><a href="#involve" onclick="return showPage('involve')">Get Involved</a></li>
+    <li><a href="#involve" class="nav-donate" onclick="return showPage('involve')">Donate</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag"><div class="hero-tag-dot"></div>Closing the Knowledge Gap</div>
+      <h1>HETEROTAXY<br><span>AWARENESS</span></h1>
+      <p class="hero-sub">Raising awareness. Saving lives. Building community.</p>
+      <div class="hero-buttons">
+        <a href="#involve" class="btn-primary" onclick="return showPage('involve')">Donate Now</a>
+        <a href="#about" class="btn-outline" onclick="return showPage('about')">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">1<span>M+</span></div><div class="hero-stat-label">Social Media Views</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">$<span>5,334</span></div><div class="hero-stat-label">Total Raised</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">120<span>+</span></div><div class="hero-stat-label">5K Participants</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Active Partnerships</div></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-tag">The Problem</div>
+        <h2 class="section-title">What is <span>Heterotaxy</span> Syndrome?</h2>
+        <p style="margin-top:24px">Heterotaxy Syndrome is a rare congenital condition in which internal organs are abnormally arranged in the chest and abdomen. It is estimated to affect about 1 in 10,000 people worldwide.<a class="citation-link" href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer" aria-label="Source 1: MedlinePlus Genetics">[1]</a></p>
+        <p>Because Heterotaxy can affect the heart, lungs, liver, spleen, intestines, and other organs, families may need coordinated care across several specialties.<a class="citation-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9463860/" target="_blank" rel="noopener noreferrer" aria-label="Source 2: Orphanet Journal of Rare Diseases clinical review">[2]</a> Our mission is to make reliable information easier to find while supporting research and affected families.</p>
+        <a href="#about" class="btn-primary" style="display:inline-block; margin-top:28px" onclick="return showPage('about')">Learn More →</a>
+      </div>
+      <div class="about-cards">
+        <div class="about-card"><h4>🫀 More Than 80% With Complex Heart Defects</h4><p>A multidisciplinary clinical review reports complex cardiovascular malformations in more than 80% of children with Heterotaxy.<a class="citation-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9463860/" target="_blank" rel="noopener noreferrer" aria-label="Source 2: Orphanet Journal of Rare Diseases clinical review">[2]</a></p></div>
+        <div class="about-card"><h4>🌍 About 1 in 10,000 Worldwide</h4><p>Heterotaxy is estimated to affect about 1 in 10,000 people worldwide, although it may be underdiagnosed.<a class="citation-link" href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer" aria-label="Source 1: MedlinePlus Genetics">[1]</a></p></div>
+        <div class="about-card"><h4>📚 About 3% of Congenital Heart Defects</h4><p>Heterotaxy Syndrome accounts for approximately 3% of congenital heart defects.<a class="citation-link" href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer" aria-label="Source 1: MedlinePlus Genetics">[1]</a></p></div>
+      </div>
+    </div>
+    <div class="medical-sources" aria-labelledby="home-medical-sources-title">
+      <h3 id="home-medical-sources-title">Medical Sources</h3>
+      <ol>
+        <li><a href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer">MedlinePlus Genetics: Heterotaxy syndrome</a> — definition, worldwide prevalence, organ involvement, and share of congenital heart defects.</li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9463860/" target="_blank" rel="noopener noreferrer">Saba et al., <em>Orphanet Journal of Rare Diseases</em> (2022)</a> — peer-reviewed multidisciplinary review of Heterotaxy and its clinical manifestations.</li>
+      </ol>
+      <p class="medical-disclaimer">This information is provided for general education and is not medical advice. Individuals should consult qualified healthcare professionals about diagnosis and treatment.</p>
+    </div>
+  </section>
+
+  <section class="work">
+    <div class="work-inner">
+      <div class="work-header">
+        <div class="section-tag">What We've Done</div>
+        <h2 class="section-title">Phase 1 <span>Highlights</span></h2>
+      </div>
+      <div class="work-grid">
+        <div class="work-card"><div class="work-icon">📱</div><h3>Social Media Campaign</h3><p>Launched an Instagram campaign combining running challenges with Heterotaxy education, targeting local high school students across Middle Tennessee.</p><div class="work-stat">1,000,000+<div class="work-stat-label">Total Views</div></div></div>
+        <div class="work-card"><div class="work-icon">🏃</div><h3>Heterotaxy 5K</h3><p>Hosted Centennial High School's first-ever Heterotaxy 5K fundraiser with 120+ participants, 30 volunteers, and prizes from Fleet Feet.</p><div class="work-stat">$1,829<div class="work-stat-label">Raised at Event</div></div></div>
+        <div class="work-card"><div class="work-icon">📄</div><h3>Infographic Flyers</h3><p>Created and distributed 260 evidence-based infographic pamphlets in collaboration with Heterotaxy Connection and Vanderbilt University professors.</p><div class="work-stat">260<div class="work-stat-label">Flyers Distributed</div></div></div>
+      </div>
+      <div style="text-align:center; margin-top:40px"><a href="#work" class="btn-primary" onclick="return showPage('work')">See All Our Work →</a></div>
+    </div>
+  </section>
+
+  <section class="event-teaser" aria-labelledby="pickleball-teaser-title">
+    <div class="event-teaser-inner">
+      <div class="event-teaser-card">
+        <div class="event-teaser-copy">
+          <div class="event-kicker">Upcoming Fundraiser</div>
+          <h2 id="pickleball-teaser-title">HTSA Bros <span>Pickleball Tournament</span></h2>
+          <p>Play, compete, and make an impact at an all-skill-level doubles tournament supporting Heterotaxy awareness and affected families.</p>
+          <div class="event-quick-facts" aria-label="Tournament highlights">
+            <span class="event-quick-fact">September 26, 2026</span>
+            <span class="event-quick-fact">9:00 AM</span>
+            <span class="event-quick-fact">Franklin, Tennessee</span>
+            <span class="event-quick-fact">$10 player · $20 team</span>
+          </div>
+          <div class="event-teaser-actions">
+            <a href="#event" class="btn-event" onclick="return showPage('event')">View Tournament Details →</a>
+            <a href="mailto:htsabros@gmail.com?subject=Pickleball%20Tournament%20Updates" class="btn-event-secondary">Get Registration Updates</a>
+          </div>
+        </div>
+        <div class="event-teaser-art" aria-hidden="true">
+          <div class="pickleball-court"></div>
+          <div class="pickleball-paddle"></div>
+          <div class="pickleball-paddle second"></div>
+          <div class="pickleball-ball"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact">
+    <div class="impact-inner">
+      <div class="section-tag">Our Impact</div>
+      <h2 class="section-title" style="color:white">By the <span style="color:var(--sky)">Numbers</span></h2>
+      <div class="impact-grid">
+        <div class="impact-cell"><div class="impact-num">80<span>K</span></div><div class="impact-desc">Instagram Interactions</div></div>
+        <div class="impact-cell"><div class="impact-num"><span>$</span>5,334</div><div class="impact-desc">Total Funds Raised</div></div>
+        <div class="impact-cell"><div class="impact-num">1,037</div><div class="impact-desc">Instagram Followers</div></div>
+        <div class="impact-cell"><div class="impact-num">5</div><div class="impact-desc">Active Partnerships</div></div>
+        <div class="impact-cell"><div class="impact-num">25<span>+</span></div><div class="impact-desc">Community Interviews</div></div>
+        <div class="impact-cell"><div class="impact-num">130<span>+</span></div><div class="impact-desc">Online Donors</div></div>
+        <div class="impact-cell"><div class="impact-num">260</div><div class="impact-desc">Flyers Distributed</div></div>
+        <div class="impact-cell"><div class="impact-num">30<span>+</span></div><div class="impact-desc">Volunteers</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners">
+    <div class="partners-inner">
+      <div class="section-tag">Our Partners</div>
+      <h2 class="section-title">Trusted <span>Collaborators</span></h2>
+      <p style="color:var(--muted); margin-top:16px; font-size:16px">We're proud to work alongside organizations that share our mission.</p>
+      <div class="partners-logo-row">
+        <div class="partner-badge">🏥 Heterotaxy Connection</div>
+        <div class="partner-badge">☕ Honest Coffee Roasters</div>
+        <div class="partner-badge">👟 Fleet Feet Franklin</div>
+        <div class="partner-badge">🛒 Costco Wholesale</div>
+        <div class="partner-badge">🏫 Williamson County Schools</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <h1>About HTSA Bros</h1>
+    <p>Our story, our mission, and why Heterotaxy matters.</p>
+  </div>
+  <section style="background:white">
+    <div style="max-width:900px; margin:0 auto">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">From <span>Middle Tennessee</span> to a Movement</h2>
+      <p style="color:var(--muted); margin-top:24px; line-height:1.9; font-size:16px">HTSA Bros began when students at Centennial High School in Franklin, Tennessee, saw how deeply Heterotaxy Syndrome affected families in their community. Heterotaxy is a rare congenital condition involving an abnormal arrangement of organs in the chest and abdomen and is estimated to affect about 1 in 10,000 people worldwide.<a class="citation-link" href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer" aria-label="Source 1: MedlinePlus Genetics">[1]</a></p>
+      <p style="color:var(--muted); margin-top:16px; line-height:1.9; font-size:16px">Armed with a social media strategy, a partnership with Heterotaxy Connection, and an unwavering commitment to their community, the HTSA Bros team launched a campaign that reached over 1,000,000 people, raised more than $5,300, and brought Heterotaxy awareness to schools, businesses, and families across Middle Tennessee.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px">
+        <div class="about-card"><h4>🎯 Our Mission</h4><p>To close the knowledge gap on Heterotaxy Syndrome by educating communities, raising funds for research, and supporting affected families through partnerships and events.</p></div>
+        <div class="about-card"><h4>🔭 Our Vision</h4><p>A world where every child with Heterotaxy receives timely diagnosis, adequate funding for treatment, and a community that understands and supports their journey.</p></div>
+        <div class="about-card"><h4>💙 Why Heterotaxy</h4><p>More than 80% of children with Heterotaxy have complex cardiovascular malformations, and the condition may affect several other organ systems.<a class="citation-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9463860/" target="_blank" rel="noopener noreferrer" aria-label="Source 2: Orphanet Journal of Rare Diseases clinical review">[2]</a></p></div>
+        <div class="about-card"><h4>🌍 Our Reach</h4><p>From Franklin, TN to over 1 million social media viewers, our campaign has demonstrated that local action can create national impact.</p></div>
+      </div>
+      <div class="medical-sources" aria-labelledby="about-medical-sources-title">
+        <h3 id="about-medical-sources-title">Medical Sources</h3>
+        <ol>
+          <li><a href="https://medlineplus.gov/genetics/condition/heterotaxy-syndrome/" target="_blank" rel="noopener noreferrer">MedlinePlus Genetics: Heterotaxy syndrome</a> — definition, worldwide prevalence, organ involvement, and share of congenital heart defects.</li>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9463860/" target="_blank" rel="noopener noreferrer">Saba et al., <em>Orphanet Journal of Rare Diseases</em> (2022)</a> — peer-reviewed multidisciplinary review of Heterotaxy and its clinical manifestations.</li>
+        </ol>
+        <p class="medical-disclaimer">This information is provided for general education and is not medical advice. Individuals should consult qualified healthcare professionals about diagnosis and treatment.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ OUR WORK ══════════════ -->
+<div id="page-work" class="page">
+  <div class="page-hero">
+    <h1>Our Work</h1>
+    <p>Everything we've done to spread awareness and raise funds.</p>
+  </div>
+  <section class="timeline">
+    <div class="timeline-inner">
+      <div class="section-tag">Project Timeline</div>
+      <h2 class="section-title" style="margin-bottom:48px">Phase 1 <span>Activities</span></h2>
+      <div class="timeline-item"><div class="timeline-date"><span>Mar 2025</span></div><div class="timeline-content"><h3>Social Media Campaign Launch</h3><p>Launched @htsa_bros on Instagram with a unique running challenge — 1 mile per 10 new followers — paired with evidence-based Heterotaxy education content.</p><span class="timeline-badge">1,000,000+ Views · 1,037 Followers · 80K Likes</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>May 2025</span></div><div class="timeline-content"><h3>GoFundMe Fundraiser</h3><p>Created a GoFundMe page linked to Heterotaxy Connection, distributing it across social media and to 10+ local businesses and 5 school organizations.</p><span class="timeline-badge">$705 Raised · 130+ Donors</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>Jul 2025</span></div><div class="timeline-content"><h3>Interview Series</h3><p>Conducted 25+ community interviews with students and followers to assess awareness levels and refine our content strategy. Views spiked from 10,345 to 34,567 biweekly following strategy changes.</p><span class="timeline-badge">25+ Interviewed · 3x View Increase</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>Sep 2025</span></div><div class="timeline-content"><h3>WCS Club Collaborations</h3><p>Collaborated with DECA, HOSA, JAG, and NHS at Centennial High School to expand volunteer capacity and school-wide awareness.</p><span class="timeline-badge">Schoolwide Collaboration · 30+ Volunteers</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>Oct 2025</span></div><div class="timeline-content"><h3>Infographic Flyer Distribution</h3><p>Distributed 260 evidence-based infographic pamphlets across local high schools in collaboration with Heterotaxy Connection and Vanderbilt University Biology professors.</p><span class="timeline-badge">260 Flyers · 4 High Schools</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>Nov 2025</span></div><div class="timeline-content"><h3>Business Partnerships</h3><p>Secured 5 local business partnerships with Costco, Fleet Feet, Whole Foods, Sprouts, and Honest Coffee Roasters — generating $2,800 in in-kind and cash support.</p><span class="timeline-badge">5 Businesses · $2,800 In Support</span></div></div>
+      <div class="timeline-item"><div class="timeline-date"><span>Jan 2026</span></div><div class="timeline-content"><h3>Heterotaxy 5K Fundraiser &amp; Awareness Run</h3><p>Hosted Centennial's first-ever Heterotaxy 5K with 120+ participants, 30 volunteers, prizes from Fleet Feet, and a pre-race educational presentation on Heterotaxy.</p><span class="timeline-badge">120+ Participants · $1,152 Raised · 30 Volunteers</span></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ PICKLEBALL EVENT ══════════════ -->
+<div id="page-event" class="page">
+  <div class="page-hero event-page-hero">
+    <div class="event-kicker">Upcoming Fundraiser</div>
+    <h1>Pickleball Tournament</h1>
+    <p>Play. Compete. Make an impact.</p>
+  </div>
+
+  <section class="event-details">
+    <div class="event-details-inner">
+      <div class="event-layout">
+        <div>
+          <div class="section-tag">HTSA Bros Community Event</div>
+          <h2 class="section-title">Take the Court for <span>Heterotaxy Awareness</span></h2>
+          <p class="event-lead">Join HTSA Bros for a community pickleball tournament built for every skill level. Register with a partner or sign up individually, meet other supporters, and help raise awareness for Heterotaxy Syndrome.</p>
+
+          <div class="event-fact-grid">
+            <div class="event-fact-card">
+              <div class="event-fact-icon" aria-hidden="true">📅</div>
+              <div class="event-fact-label">Date</div>
+              <div class="event-fact-value">Saturday, September 26, 2026</div>
+            </div>
+            <div class="event-fact-card">
+              <div class="event-fact-icon" aria-hidden="true">🕘</div>
+              <div class="event-fact-label">Start Time</div>
+              <div class="event-fact-value">9:00 AM</div>
+            </div>
+            <div class="event-fact-card">
+              <div class="event-fact-icon" aria-hidden="true">📍</div>
+              <div class="event-fact-label">Location</div>
+              <div class="event-fact-value">Franklin, Tennessee<br>Exact venue coming soon</div>
+            </div>
+            <div class="event-fact-card">
+              <div class="event-fact-icon" aria-hidden="true">🏆</div>
+              <div class="event-fact-label">Grand Prize</div>
+              <div class="event-fact-value">Prize announcement coming soon</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="registration-card" aria-labelledby="registration-card-title">
+          <span class="registration-status">Registration Opening Soon</span>
+          <h3 id="registration-card-title">Register to Play</h3>
+          <div class="price-grid" aria-label="Registration pricing">
+            <div class="price-card">
+              <div class="price-amount">$10</div>
+              <div class="price-label">Per player</div>
+            </div>
+            <div class="price-card">
+              <div class="price-amount">$20</div>
+              <div class="price-label">Per doubles team</div>
+            </div>
+          </div>
+          <ul class="event-checklist">
+            <li>All skill levels are welcome</li>
+            <li>Bring a partner or register individually</li>
+            <li>Cash or Venmo accepted</li>
+            <li>Grand prize details coming soon</li>
+          </ul>
+          <a href="mailto:htsabros@gmail.com?subject=Pickleball%20Tournament%20Updates" class="btn-event">Get Registration Updates</a>
+          <p class="registration-note">The official registration link and payment instructions will be posted here when registration opens.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="event-mission">
+    <div class="event-mission-inner">
+      <div class="section-tag">More Than a Tournament</div>
+      <h2 class="section-title">Play With <span>Purpose</span></h2>
+      <p class="event-mission-copy">Tournament proceeds will support HTSA Bros' mission to raise awareness of Heterotaxy Syndrome, educate communities, and support affected families.</p>
+
+      <div class="event-support-grid">
+        <div class="event-support-card">
+          <h3>Interested in Sponsoring?</h3>
+          <p>Local businesses and organizations can support the tournament through sponsorships, prizes, services, or in-kind contributions.</p>
+          <a href="mailto:htsabros@gmail.com?subject=Pickleball%20Tournament%20Sponsorship">Ask About Sponsorship →</a>
+        </div>
+        <div class="event-support-card">
+          <h3>Want to Volunteer?</h3>
+          <p>Help with check-in, court coordination, setup, event promotion, or other tournament-day needs.</p>
+          <a href="mailto:htsabros@gmail.com?subject=Pickleball%20Tournament%20Volunteer">Volunteer at the Tournament →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ TEAM ══════════════ -->
+<div id="page-team" class="page">
+  <div class="page-hero">
+    <h1>Our Team</h1>
+    <p>Meet the people behind HTSA Bros.</p>
+  </div>
+  <section class="team" style="background:white">
+    <div class="team-inner">
+      <div class="section-tag">Leadership</div>
+      <h2 class="section-title">The <span>Founders</span></h2>
+      <div class="team-grid">
+
+        <!-- Nathan -->
+        <div class="team-card">
+          <div class="team-photo"><img src="https://raw.githubusercontent.com/htsabros/images/main/Nathan.jpg" class="person-1" alt="Nathan Ragheb"></div>
+          <div class="team-info">
+            <div class="team-name">Nathan Ragheb</div>
+            <div class="team-role">Co-Founder &amp; CEO</div>
+            <div class="team-bio">Leads social media strategy, content creation, and business development. Grew @htsa_bros to 1,037 followers and 1M+ views.</div>
+          </div>
+        </div>
+
+        <!-- Iker -->
+        <div class="team-card">
+          <div class="team-photo"><img src="https://raw.githubusercontent.com/htsabros/images/main/Max.jpg" class="person-2" alt="Iker Rodriguez-Rincon"></div>
+          <div class="team-info">
+            <div class="team-name">Iker Rodriguez-Rincon</div>
+            <div class="team-role">Co-Founder &amp; CFO</div>
+            <div class="team-bio">Leads community outreach and medical professional partnerships. Connected with Heterotaxy Connection CEO Necia Sabin to direct donations.</div>
+          </div>
+        </div>
+
+        <!-- Eli -->
+        <div class="team-card">
+          <div class="team-photo"><img src="https://raw.githubusercontent.com/htsabros/images/main/Eli.jpg" class="person-4" alt="Eli Lewis"></div>
+          <div class="team-info">
+            <div class="team-name">Eli Lewis</div>
+            <div class="team-role">Director of Outreach &amp; COO</div>
+            <div class="team-bio">Pioneers and executes awareness campaigns with local businesses and schools. Coordinated school club partnerships across WCS.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ GET INVOLVED ══════════════ -->
+<div id="page-involve" class="page">
+  <div class="page-hero">
+    <h1>Get Involved</h1>
+    <p>Three ways to make a difference for Heterotaxy families.</p>
+  </div>
+  <section class="involve">
+    <div class="involve-inner">
+      <div class="involve-grid">
+        <div class="involve-card donate-card">
+          <div class="involve-icon">💛</div>
+          <h3>Donate</h3>
+          <p>100% of donations go directly to Heterotaxy Connection to fund research, family support, and medical conferences for affected families.</p>
+          <a href="https://www.gofundme.com/f/heterotaxy-awareness" class="involve-btn" target="_blank" rel="noopener noreferrer">Donate on GoFundMe</a>
+        </div>
+        <div class="involve-card volunteer-card">
+          <div class="involve-icon">🤝</div>
+          <h3>Volunteer</h3>
+          <p>Help us at events, distribute flyers, or assist with social media. No experience needed — just a passion for making a difference.</p>
+          <a href="mailto:htsabros@gmail.com?subject=Volunteer Interest" class="involve-btn">Sign Up to Volunteer</a>
+        </div>
+        <div class="involve-card partner-card">
+          <div class="involve-icon">🏢</div>
+          <h3>Partner With Us</h3>
+          <p>Is your business or organization interested in supporting HTSA Bros? We'd love to connect and explore how we can work together.</p>
+          <p style="margin-top:12px; font-size:14px;"><a href="mailto:htsabros@gmail.com" style="color:var(--navy); text-decoration:underline;">htsabros@gmail.com</a></p>
+          <a href="mailto:htsabros@gmail.com?subject=Partnership Inquiry" class="involve-btn">Contact Us</a>
+        </div>
+      </div>
+
+      <div style="max-width:700px; margin:60px auto 0; text-align:center">
+        <div class="section-tag">Follow Our Journey</div>
+        <h2 class="section-title">Find Us on <span>Instagram</span></h2>
+        <p style="color:var(--muted); margin-top:16px; font-size:16px; line-height:1.7">Follow @htsa_bros for weekly Heterotaxy education content, behind-the-scenes campaign updates, and our ongoing running challenge.</p>
+        <a href="https://instagram.com/htsa_bros" class="btn-primary" style="display:inline-block; margin-top:28px" target="_blank" rel="noopener noreferrer">@htsa_bros on Instagram</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:12px">
+          <div class="nav-logo-circle">HTSA</div>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:white; letter-spacing:2px">HTSA Bros</span>
+        </div>
+        <p>Closing the knowledge gap on Heterotaxy Syndrome through education, community events, and fundraising in Middle Tennessee and beyond.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#home" onclick="return showPage('home')">Home</a></li><li><a href="#about" onclick="return showPage('about')">About</a></li><li><a href="#work" onclick="return showPage('work')">Our Work</a></li><li><a href="#event" onclick="return showPage('event')">Pickleball Event</a></li><li><a href="#team" onclick="return showPage('team')">Team</a></li></ul></div>
+      <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="#involve" onclick="return showPage('involve')">Donate</a></li><li><a href="#involve" onclick="return showPage('involve')">Volunteer</a></li><li><a href="#involve" onclick="return showPage('involve')">Partner With Us</a></li></ul></div>
+      <div class="footer-col"><h4>Partners</h4><ul>
+        <li><a href="https://heterotaxy.org" target="_blank" rel="noopener noreferrer">Heterotaxy Connection</a></li>
+        <li><a href="https://www.honest.coffee" target="_blank" rel="noopener noreferrer">Honest Coffee</a></li>
+        <li><a href="https://fleetfeet.com" target="_blank" rel="noopener noreferrer">Fleet Feet</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 HTSA Bros · Heterotaxy Syndrome Awareness · Franklin, TN</p>
+      <div class="social-links">
+        <a href="https://instagram.com/htsa_bros" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="HTSA Bros on Instagram">📷</a>
+        <a href="https://www.gofundme.com/f/heterotaxy-awareness" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Donate to HTSA Bros on GoFundMe">💛</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(name, updateHistory = true) {
+    const targetPage = document.getElementById('page-' + name);
+    if (!targetPage) return false;
+    const pageTitles = {
+      home: 'HTSA Bros — Heterotaxy Syndrome Awareness',
+      about: 'About HTSA Bros — Heterotaxy Syndrome Awareness',
+      work: 'Our Work — HTSA Bros',
+      event: 'Pickleball Tournament — HTSA Bros',
+      team: 'Our Team — HTSA Bros',
+      involve: 'Get Involved — HTSA Bros'
+    };
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    targetPage.classList.add('active');
+    document.title = pageTitles[name] || pageTitles.home;
+    if (updateHistory && window.location.hash !== '#' + name) {
+      window.history.pushState({ page: name }, '', '#' + name);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function showPageFromHash() {
+    const requestedPage = window.location.hash.slice(1) || 'home';
+    const pageExists = document.getElementById('page-' + requestedPage);
+    showPage(pageExists ? requestedPage : 'home', false);
+  }
+
+  window.addEventListener('popstate', showPageFromHash);
+  window.addEventListener('hashchange', showPageFromHash);
+  showPageFromHash();
+</script>
+</body>
+</html>
